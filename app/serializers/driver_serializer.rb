@@ -19,10 +19,6 @@
 #  index_drivers_on_city_id     (city_id)
 #
 
-require 'test_helper'
-
-class DriverTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+class DriverSerializer < ActiveModel::Serializer
+  attributes :id ,:name,:user,:email
 end

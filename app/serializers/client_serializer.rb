@@ -24,28 +24,7 @@
 #  index_clients_on_city_id     (city_id)
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  last_name: MyString
-  gender: MyString
-  birthdate: 2019-05-18
-  email: MyString
-  latitude: MyString
-  longitude: MyString
-  address: MyString
-  user: MyString
-  password: MyString
-
-two:
-  name: MyString
-  last_name: MyString
-  gender: MyString
-  birthdate: 2019-05-18
-  email: MyString
-  latitude: MyString
-  longitude: MyString
-  address: MyString
-  user: MyString
-  password: MyString
+class ClientSerializer < ActiveModel::Serializer
+  attributes :id ,:name, :user,:email
+end

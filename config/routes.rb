@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
+  post 'driver_token' => 'driver_token#create'
+  
   resources :cities do
-    resources :clients
+    get '/drivers/current' ,  to: 'drivers#current'
+    resources :drivers
+    resources :clients do 
+      resources :reviews
+    end
     resources :cooks do
-     resources :products
+     resources :products do 
+      resources :reviews
+    end
     end
   end
-  resources :drivers
-  resources :reviews, only: [:create]
-  resources :orders, only: [:create]
+  
+  
+  resources :orders
 end
