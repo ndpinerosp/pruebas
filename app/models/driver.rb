@@ -26,11 +26,11 @@ class Driver < ApplicationRecord
     
     has_many :orders, as: :orderable
     belongs_to :city
-    validates :user, presence: true ,length: { maximum: 15 },uniqueness: { case_sensitive: false }
+    validates :user, presence: true ,length: { maximum: 15 }, uniqueness: { case_sensitive: false }
     validates :name, presence: true ,length: { maximum: 30 }
     validates :last_name, presence: true ,length: { maximum: 30 }
-    validates :password, presence: true,length: { minimum: 6 }
-    validates :email,presence: true,format: { with: URI::MailTo::EMAIL_REGEXP },uniqueness: { case_sensitive: false }
+    validates :password, presence: true,length: { minimum: 5 }
+    validates :email,presence: true,format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: { case_sensitive: false }
     def downcase_email
         self.email.downcase!
       end

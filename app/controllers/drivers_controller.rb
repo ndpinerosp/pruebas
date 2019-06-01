@@ -1,6 +1,6 @@
 class DriversController < ApplicationController
-before_action :set_driver, only: [ :update, :destroy]
-before_action :authenticate_driver, only: [:show, :current ]
+before_action :authenticate_driver, only: [:show, :current]
+before_action :set_driver, only: [:show, :update, :destroy]
 
 def index
 
@@ -19,7 +19,6 @@ end
   def current
     render json: current_driver
   end
-
   def create
     cities = City.find(params[:city_id])
     driver = Driver.new(driver_params)
@@ -44,6 +43,7 @@ end
     @drivers.destroy
   end
 
+  private
     # Use callbacks to share common setup or constraints between actions.
     def set_driver
       cities = City.find(params[:city_id])
